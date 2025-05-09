@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши Воспоминания - День Рождения Маруси</title>
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle" id="themeToggle">
+        <div class="moon">🌙</div>
+    </div>
+
+    <div class="stars-container" id="starsContainer"></div>
+
+    <div class="gallery-container">
+        <h1 class="gallery-title">Самая Прекрасная Девушка на Свете</h1>
+        <div class="gallery">
+            <div class="gallery-wrapper">
+                <div class="gallery-item">
+                    <img src="images/photo1.jpg" alt="Наше первое свидание">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo2.jpg" alt="Особенный момент">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo3.jpg" alt="Счастливые времена">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo4.jpg" alt="Прекрасная улыбка">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo5.jpg" alt="Вместе навсегда">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo6.jpg" alt="Сладкие воспоминания">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo7.jpg" alt="Наши мечты">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo8.jpg" alt="Любовь и радость">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo9.jpg" alt="Счастливые мгновения">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo10.jpg" alt="Наша история любви">
+                </div>
+            </div>
+            <button class="nav-button prev" aria-label="Предыдущее фото">❮</button>
+            <button class="nav-button next" aria-label="Следующее фото">❯</button>
+        </div>
+        <div class="gallery-nav">
+            <div class="thumbnails"></div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const starsContainer = document.getElementById('starsContainer');
+            let isDarkMode = false;
+
+            // Create stars for night mode
+            function createStars() {
+                starsContainer.innerHTML = '';
+                for (let i = 0; i < 50; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.width = Math.random() * 3 + 'px';
+                    star.style.height = star.style.width;
+                    star.style.left = Math.random() * 100 + '%';
+                    star.style.top = Math.random() * 100 + '%';
+                    star.style.animationDelay = Math.random() * 2 + 's';
+                    starsContainer.appendChild(star);
+                }
+            }
+
+            // Theme toggle
+            themeToggle.addEventListener('click', () => {
+                isDarkMode = !isDarkMode;
+                document.body.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+                if (isDarkMode) {
+                    createStars();
+                }
+            });
+        });
+    </script>
+    <script src="gallery.js"></script>
+</body>
+</html> 
